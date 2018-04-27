@@ -1,0 +1,77 @@
+package bankAccount;
+
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class LoanGUIPanel extends JPanel {
+
+	JFrame frame;
+
+	LoanGUIPanel(JFrame f) {
+
+		frame = f;
+		this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+
+		// Name of user
+		JPanel nameLine = new JPanel();
+		nameLine.setLayout(new FlowLayout());
+		JLabel name = new JLabel("Name: ");
+		JTextField nameField = new JTextField(30);
+		nameLine.add(name);
+		nameLine.add(nameField);
+		this.add(nameLine);
+
+		// Address of user
+
+		// Income of user
+
+		// Rent of user
+
+		// Apply button
+		JButton n = new JButton("Apply");
+		this.add(n);
+
+		// Action Listener for button
+		n.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent evt) {
+				// Store name and address (use "getText()" to pull text from text fields)
+				// Store as JLabels
+
+				// Try to parse rent amount and income amount
+				int rentAmount, incomeAmount;
+				try {
+					rentAmount = Integer.parseInt(rentField.getText());
+				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null, "Please enter an integer value for the monthly mortgage.");
+					return;
+				}
+
+				try {
+					incomeAmount = Integer.parseInt(incomeField.getText());
+				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null, "Please enter an integer value for the monthly income.");
+					return;
+				}
+
+				// create new frame to display results
+				// create resultPanel constructor while passing nameResult, addressResult, incomeAmount, rentAmount, and your new frame)
+
+				frame.dispose();
+				frame2.add(resultPanel);
+				frame2.setVisible(true);
+				frame2.pack();
+			}
+		});
+
+	}
+}
